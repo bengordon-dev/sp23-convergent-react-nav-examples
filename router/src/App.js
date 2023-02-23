@@ -8,10 +8,15 @@ import Bills from './pages/Bills';
 import { bills } from './Database';
 import BillPage from './pages/BillPage';
 
-const router = createBrowserRouter([...[
-  {path: "/", element: <Home />},
-  {path: "/bills", element: <Bills />},
-], ...bills.map(bill => ({path: bill.title.split(" ").map(e => e[0]).join(""), element: <BillPage data={bill}/>}))
+const router = createBrowserRouter([
+  ...[
+    {path: "/", element: <Home/>},
+    {path: "/bills", element: <Bills/>},
+  ], 
+  ...bills.map(bill => ({
+    path: bill.title.split(" ").map(e => e[0]).join(""), 
+    element: <BillPage data={bill}/>
+  }))
 ]);
 
 export default function App() {

@@ -1,5 +1,5 @@
 export default function BillPage(props) {
   return (
-    <div>{props.data.title}</div>
+    <div className="page">{props.data.title}</div>
   )
 }
