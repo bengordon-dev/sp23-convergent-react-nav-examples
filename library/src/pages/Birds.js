@@ -1,75 +1,31 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Animal from "./Animal";
-const Stack = createNativeStackNavigator();
 
-export default function Birds({ navigation }) {
+export default function Birds() {
   return (
     <View style={styles.container}>
       <Text style={styles.pageText}>Vote for your favorite bird</Text>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Duck")}
-      >
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Duck</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Parrot")}
-      >
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Parrot</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Goose")}
-      >
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Goose</Text>
       </TouchableOpacity>
     </View>
   );
 }
-
+/*
+Pages we want to be able to navigate to:
+  Duck: ../../assets/duck.jpeg
+  Parrot: ../../assets/parrot.jpeg
+  Goose: ../../assets/goose.jpeg
+*/
 export function BirdNavigator(props) {
-  return (
-    <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen
-        name="Home"
-        component={Birds}
-        options={{ headerTitle: "Birds" }}
-      />
-      <Stack.Screen
-        name="Duck"
-        children={() => (
-          <Animal
-            image={require("../../assets/duck.jpeg")}
-            votes={props.duckVote}
-            setVotes={props.setDuckVote}
-          />
-        )}
-      />
-      <Stack.Screen
-        name="Parrot"
-        children={() => (
-          <Animal
-            image={require("../../assets/parrot.jpeg")}
-            votes={props.parrotVote}
-            setVotes={props.setParrotVote}
-          />
-        )}
-      />
-      <Stack.Screen
-        name="Goose"
-        children={() => (
-          <Animal
-            image={require("../../assets/goose.jpeg")}
-            votes={props.gooseVote}
-            setVotes={props.setGooseVote}
-          />
-        )}
-      />
-    </Stack.Navigator>
-  );
+  return <Birds />;
 }
 
 const styles = StyleSheet.create({
