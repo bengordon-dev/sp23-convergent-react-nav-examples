@@ -80,3 +80,19 @@ button:active {
   border-radius: 20px;
 }
 
+
+.voteTotal {
+  margin-bottom: 10px;
+}
+
+.voteTotal div {
+  padding: 2px 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.billInfo p {
+  margin-top: 0px;
+  margin-bottom: 5px; 
+}
