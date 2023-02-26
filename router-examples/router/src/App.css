@@ -83,7 +83,9 @@ button:active {
 
 .voteTotal {
   margin-bottom: 10px;
+  width: 570px;
 }
+
 
 .voteTotal div {
   padding: 2px 5px;

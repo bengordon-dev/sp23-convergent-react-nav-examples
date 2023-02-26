@@ -1,13 +1,13 @@
 import "../App.css"
-// necessary import
+import { useNavigate } from "react-router-dom";
 
 export default function Home(props) {
-  // necessary declaration
+  const navigate = useNavigate();
   return (
     <div className="page flexCenter">
       <h1>Oval Office Desk</h1>
       <img className="pic" src={require("../assets/signing_bill.jpeg")}/>
-      <button className="nav" onClick={() => alert("implement me")}>See Bills to Sign</button>
+      <button className="nav" onClick={() => navigate("/bills")}>See Bills to Sign</button>
     </div>
   )
 }

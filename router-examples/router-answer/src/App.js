@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Home from './pages/Home';
+import Bills from './pages/Bills';
+import { bills } from './Database';
+import BillPage from './pages/BillPage';
+import { useState } from "react";
 
-function App() {
+
+
+export default function App() {
+  const [onDesk, setOnDesk] = useState(bills)
+  const [signed, setSigned] = useState([])
+  const [vetoed, setVetoed] = useState([])
+  
+  const getPath = (bill) => bill.title.split(" ").map(e => e[0]).join("")
+
+  const router = createBrowserRouter([
+    ...[
+      {path: "/", element: <Home/>},
+      {path: "/bills", element: <Bills 
+        onDesk={onDesk} setOnDesk={setOnDesk}
+        signed={signed} setSigned={setSigned}
+        vetoed={vetoed} setVetoed={setVetoed}
+      />},
+    ], 
+    ...bills.map(bill => ({
+      path: getPath(bill), 
+      element: <BillPage data={bill}/>
+    }))
+  ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <RouterProvider router={router} />
+  )
 }
-
-export default App;
