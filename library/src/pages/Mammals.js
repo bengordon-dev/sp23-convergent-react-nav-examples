@@ -6,6 +6,11 @@ import Platypus from "./Platypus";
 
 const Stack = createNativeStackNavigator();
 
+/*
+  Buttons for each of the three mammals
+  that navigate to a page to vote on each of them
+*/
+
 export default function Mammals(props) {
   return (
     <View style={styles.container}>
@@ -32,6 +37,12 @@ export default function Mammals(props) {
   );
 }
 
+/*
+  Each animal screen is passed the votes and setVotes
+  for that animal so that it can update the votes and the
+  votes will persist after the user navigates away from the
+  screen
+*/
 export function MammalNavigator(props) {
   return (
     <Stack.Navigator initialRouteName="Home">
