@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 
+/*
+  Animal component that displays the image and votes for the animal
+  and has buttons to upvote and downvote the animal
+  The image, votes, and setVotes are passed in as props
+*/
+
 export default function Animal({ image, votes, setVotes }) {
   const handleVote = (increment) => {
     setVotes(votes + increment);
