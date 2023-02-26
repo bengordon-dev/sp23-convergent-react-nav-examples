@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+// necessary import 
 
 export default function BillPage(props) {
-  const navigate = useNavigate()
+  // necessary declarations
   return (
     <div className="page flexCenter">
       <h1>{props.data.title}</h1>
-      <button className="nav" onClick={() => navigate("/bills")}>Go Back</button>
+      <button className="nav" onClick={() => alert("Implement me")}>Go Back</button>
     </div>
   )
 }

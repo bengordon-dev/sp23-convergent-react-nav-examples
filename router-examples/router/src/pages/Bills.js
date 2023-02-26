@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
+// necessary import 
 import "../App.css"
 import BillInfo from "../components/BillInfo";
 
 export default function Bills(props) {
-  const navigate = useNavigate();
+  // necessary declaration
 
   function signBill(bill) {
     props.setSigned([...props.signed, bill])
@@ -21,13 +21,13 @@ export default function Bills(props) {
       <div className="onDesk flexCenter">
         {props.onDesk && props.onDesk.map((bill, i) => <BillInfo 
           bill={bill} 
-          navigate={navigate}
+          navigate={null /* implement this */}
           sign={() => signBill(bill)}
           veto={() => vetoBill(bill)}
           key={i}
         />)}
       </div>
-      <button className="nav" style={{marginTop: 20}} onClick={() => navigate("/")}>Go Home</button>
+      <button className="nav" style={{marginTop: 20}} onClick={() => alert("Implement me")}>Go Home</button>
       <div className="flexRow">
         <div className="flexCenter column">
           <h1>Signed</h1>

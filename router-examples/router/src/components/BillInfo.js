@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+// necessary import (new component)
 
 export default function BillInfo(props) {
   const path = "/" + props.bill.title.split(" ").map(e => e[0]).join("")
@@ -27,7 +27,7 @@ export default function BillInfo(props) {
           {props.bill.senateVote[1]}
         </div>
       </div>}
-      <Link to={path} style={{ color: "blue"}}>More info</Link>
+      {/* imported component */}
       {props.sign && props.veto && <div className="flexRow billActions">
         <button onClick={props.sign} style={{backgroundColor: "#9f9"}}>Sign</button>
         <button onClick={props.veto} style={{backgroundColor: "#f99"}}>Veto</button>
