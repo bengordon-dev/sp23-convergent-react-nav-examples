@@ -15,7 +15,13 @@ export default function App() {
   const [duckVote, setDuckVote] = React.useState(0);
   const [parrotVote, setParrotVote] = React.useState(0);
   const [gooseVote, setGooseVote] = React.useState(0);
-
+  
+  /*
+    Tab navigator with two tabs: Mammals and Birds
+    Each tab is given an icon that changes color when the tab is selected
+    State for each of the votes is passed into the tab screens
+    so that state will persist after navigating away from the screen
+  */
   return (
     <NavigationContainer>
       <Tab.Navigator
